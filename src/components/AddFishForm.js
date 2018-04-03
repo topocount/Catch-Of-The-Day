@@ -19,6 +19,8 @@ class AddFishForm extends React.Component {
     // 1. Stop the form from submitting
     event.preventDefault();
     // 2. pass the form values into state via App.addFish()
+    console.log(this.priceRef.value.value.length)
+    //if (isNaN(price)) return null
     const fish = {
       name: this.nameRef.value.value,
       price: parseFloat(this.priceRef.value.value), //value in cents
@@ -34,7 +36,7 @@ class AddFishForm extends React.Component {
     return (
       <form className="fish-edit" onSubmit={this.createFish}>
         <input name="name" ref={this.nameRef} type="text" placeholder="name" />
-        <input name="price" ref={this.priceRef} type="text" placeholder="price" />
+        <input name="price" ref={this.priceRef} type="number" placeholder="price" />
         <select name="status" ref={this.statusRef}>
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
